@@ -7,8 +7,22 @@ import java.util.Set;
 
 import edu.sdsu.cs160l.university.lab5.course.Course;
 
-//TODO make this singleton
+//TODO make this singleton (DONE)
 public class CS340 implements Course {
+    private static CS340 instance;
+
+    private CS340(){}
+
+    public static CS340 getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new CS340();
+        }
+
+        return instance;
+    }
+
     @Override
     public String courseName() {
         return "CS340";

@@ -21,16 +21,27 @@ public abstract class Course {
     }
 
     public void addStudent(Student studentToBeEnrolled) throws StudentAlreadyEnrolledException, ClassFullException {
-        //TODO check if studentToBeEnrolled is null if yes throw new NullPointerException
+        //TODO (done) check if studentToBeEnrolled is null if yes throw new NullPointerException
+        if(studentToBeEnrolled == null)
+        {
+            throw new NullPointerException();
+        }
 
-        //TODO check if studentToBeEnrolled is not already enrolled in the class if yes create and throw a StudentAlreadyEnrolledException,
+        //TODO (done) check if studentToBeEnrolled is not already enrolled in the class if yes create and throw a StudentAlreadyEnrolledException,
         // you may leverage the studentAlreadyPresent function below
+        if(studentsEnrolled.contains(studentToBeEnrolled))
+        {
+            throw new StudentAlreadyEnrolledException("Student already enrolled.");
+        }
 
-        //TODO check if class is already full if yes create and throw a ClassFullException
+        //TODO (done) check if class is already full if yes create and throw a ClassFullException
         // you may leverage the isClassFull function below
-
-        //TODO if all the checks pass, add the student to the the course list "studentsEnrolled"
-
+        if(isClassFull())
+        {
+            throw new ClassFullException("Class is full");
+        }
+        //TODO (done) if all the checks pass, add the student to the the course list "studentsEnrolled"
+        studentsEnrolled.add(studentToBeEnrolled);
     }
 
     private boolean studentAlreadyPresent(Student student) {

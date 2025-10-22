@@ -6,7 +6,7 @@ import java.util.List;
 
 public class HowNotToUseExceptions {
   public static void main(String[] args) {
-    doNotDoThis();
+      doNotDoThis();
   }
 
   public static void doNotDoThis() {
